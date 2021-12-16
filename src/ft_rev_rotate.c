@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_rev_rotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/16 10:21:19 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/16 12:04:57 by nprimo           ###   ########.fr       */
+/*   Created: 2021/12/16 11:49:56 by nprimo            #+#    #+#             */
+/*   Updated: 2021/12/16 12:03:48 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "libft/libft.h"
+void	ft_rev_rotate(t_list **stack)
+{
+	t_list	*new_last;
+	t_list	*curr_last;
+	int		size;
 
-t_list	*init_stack(int ac, char **av);
-void	ft_swap(t_list **stack);
-void	ft_push(t_list **getter, t_list **giver);
-void	ft_rotate(t_list **stack);
-void	ft_rev_rotate(t_list **stack);
-
-#endif
+	size = ft_lstsize(*stack);
+	if (size < 2 || !(*stack))
+		return ;
+	curr_last = ft_lstlast(*stack);
+	new_last = *stack;
+	while (new_last->next != curr_last)
+		new_last = new_last->next;
+	new_last->next = NULL;
+	curr_last->next = *stack;
+	*stack = curr_last;
+}

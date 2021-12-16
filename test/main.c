@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:23:08 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/16 11:47:05 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/16 12:04:45 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,23 @@ int	main(int ac, char **av)
 		printf("--Check ft_push (1)--\n");
 		ft_push(&stack_b, &stack_a);
 		print_stack(stack_a);
+		printf("--\n");
 		print_stack(stack_b);
 		printf("--Check ft_push (2)--\n");
 		ft_push(&stack_b, &stack_a);
 		print_stack(stack_a);
+		printf("--\n");
 		print_stack(stack_b);
 		// Check rotate
 		printf("--Check ft_rotate (a)--\n");
 		ft_rotate(&stack_a);
+		print_stack(stack_a);
+		// Check rev rotate
+		printf("--Check ft_rev_rotate (b)--\n");
+		ft_rev_rotate(&stack_b);
+		print_stack(stack_b);
+		printf("--Check ft_rev_rotate (a)--\n");
+		ft_rev_rotate(&stack_a);
 		print_stack(stack_a);
 	}
 }

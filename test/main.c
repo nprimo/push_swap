@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:23:08 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/16 11:31:51 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/16 11:47:05 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	print_stack(t_list *head)
 		printf("%s\n", head->content);
 		head = head->next;
 	}
-	printf("---\n");
 }
 
 int	main(int ac, char **av)
@@ -50,5 +49,9 @@ int	main(int ac, char **av)
 		ft_push(&stack_b, &stack_a);
 		print_stack(stack_a);
 		print_stack(stack_b);
+		// Check rotate
+		printf("--Check ft_rotate (a)--\n");
+		ft_rotate(&stack_a);
+		print_stack(stack_a);
 	}
 }

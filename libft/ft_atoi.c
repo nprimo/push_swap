@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 15:38:17 by nprimo            #+#    #+#             */
-/*   Updated: 2021/10/20 16:35:32 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/16 16:48:26 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ static int	ft_isspace(int c)
 		return (0);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int	res;
-	int	sign;
+	long	res;
+	int		sign;
 
 	res = 0;
 	sign = 1;

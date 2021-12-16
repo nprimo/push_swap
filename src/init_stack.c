@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:35:33 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/16 10:40:25 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/16 16:39:30 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,27 @@ t_list	*init_stack(int ac, char **av)
 {
 	t_list	*stack;
 	int		pos;
+	char	**inputs;
 
 	stack = NULL;
-	pos = 1;
-	while (pos < ac)
+	if (ac > 2)
 	{
-		ft_lstadd_back(&stack, ft_lstnew(av[pos]));
-		pos++;
+		pos = 1;
+		while (pos < ac)
+		{
+			ft_lstadd_back(&stack, ft_lstnew(av[pos]));
+			pos++;
+		}
+	}
+	else
+	{
+		inputs = ft_split(av[1], ' ');
+		pos = 0;
+		while (inputs[pos])
+		{
+			ft_lstadd_back(&stack, ft_lstnew(inputs[pos]));
+			pos++;
+		}
 	}
 	return (stack);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:23:08 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/20 12:36:50 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/20 17:07:18 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ int	main(int ac, char **av)
 		printf("--Check init_stack--\n");
 		stack_a = init_stack(ac, av);
 		print_stack(stack_a); 
+		// Check is_sorted
+		printf("--Check is_sorted--\n");
+		printf("is sorted? %d\n", is_sorted(stack_a));
 		// Check swap
 		printf("--Check ft_swap--\n");
 		ft_swap(&stack_a);

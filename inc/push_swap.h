@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:21:19 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/20 14:53:07 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/20 17:08:52 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,14 @@ t_stack	*ft_stclast(t_stack *stack);
 void	ft_stcadd_front(t_stack **stack, t_stack *new);
 int		ft_stcsize(t_stack *stack);
 
-// Stack basics
+// Stack basic functions
 t_stack	*init_stack(int ac, char **av);
 void	ft_swap(t_stack **stack);
 void	ft_push(t_stack **getter, t_stack **giver);
 void	ft_rotate(t_stack **stack);
 void	ft_rev_rotate(t_stack **stack);
+
+// sort functions
+int		is_sorted(t_stack *stack);
 
 #endif

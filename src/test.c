@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:23:08 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/20 18:01:54 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/20 19:53:36 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,6 @@ int	main(int ac, char **av)
 		print_status(stack_a, stack_b);
 		printf("op: %s\n", ex_op(&stack_a, &stack_b, "sa"));
 		print_status(stack_a, stack_b);
-		printf("op: %s\n", ex_op(&stack_a, &stack_b, "sa"));
-		print_status(stack_a, stack_b);
 		printf("op: %s\n", ex_op(&stack_a, &stack_b, "ra"));
 		print_status(stack_a, stack_b);
 		printf("op: %s\n", ex_op(&stack_a, &stack_b, "rb"));
@@ -100,5 +98,7 @@ int	main(int ac, char **av)
 		print_status(stack_a, stack_b);
 		printf("op: %s\n", ex_op(&stack_a, &stack_b, "rrb"));
 		print_status(stack_a, stack_b);
+		ft_stcclear(&stack_a);
+		ft_stcclear(&stack_b);
 	}
 }

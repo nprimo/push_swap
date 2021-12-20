@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:21:19 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/20 17:23:57 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/20 17:38:59 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ void	ft_rev_rotate(t_stack **stack);
 // sort functions
 int		is_sorted(t_stack *stack);
 int		is_rev_sorted(t_stack *stack);
+char	*ex_op(t_stack **a, t_stack **b, char *op);
 
 #endif

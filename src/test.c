@@ -6,13 +6,49 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:23:08 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/20 17:23:22 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/20 18:01:54 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 #include <stdio.h>
+
+void	print_status(t_stack *a, t_stack *b)
+{
+	int	size_a;
+	int size_b;
+	int	size_max;
+
+	size_a = ft_stcsize(a);
+	size_b = ft_stcsize(b);
+	if (size_a > size_b)
+		size_max = size_a;
+	else
+		size_max = size_b;
+	while (size_max > 0)
+	{
+		if (size_a >= size_max)
+		{
+			ft_putnbr_fd(a->num, 1);
+			a = a->next;
+		}
+		else
+			ft_putstr_fd(" ", 1);
+		ft_putchar_fd('\t', 1);
+		if (size_b >= size_max)
+		{
+			ft_putnbr_fd(b->num, 1);
+			b = b->next;
+		}
+		else
+			ft_putstr_fd(" ", 1);
+		ft_putchar_fd('\n', 1);
+		size_max--;
+	}
+	ft_putstr_fd("-\t-\n", 1);
+	ft_putstr_fd("a\tb\n", 1);
+}
 
 void	print_stack(t_stack *head)
 {
@@ -42,26 +78,27 @@ int	main(int ac, char **av)
 		// Check is_rev_sorted
 		printf("--Check is_rev_sorted--\n");
 		printf("is sorted (reverse)? %d\n", is_rev_sorted(stack_a));
-		// Check swap
-		printf("--Check ft_swap--\n");
-		ft_swap(&stack_a);
-		print_stack(stack_a);
-		// Check push
-		printf("--Check ft_push (1)--\n");
-		ft_push(&stack_b, &stack_a);
-		print_stack(stack_a);
-		printf("--\n");
-		print_stack(stack_b);
-		// Check rotate
-		printf("--Check ft_rotate (a)--\n");
-		ft_rotate(&stack_a);
-		print_stack(stack_a);
-		// Check rev rotate
-		printf("--Check ft_rev_rotate (b)--\n");
-		ft_rev_rotate(&stack_b);
-		print_stack(stack_b);
-		printf("--Check ft_rev_rotate (a)--\n");
-		ft_rev_rotate(&stack_a);
-		print_stack(stack_a);
+		// Check ex_op
+		printf("--check ex_op--\n");
+		printf("op: %s\n", ex_op(&stack_a, &stack_b, "pb"));
+		print_status(stack_a, stack_b);
+		printf("op: %s\n", ex_op(&stack_a, &stack_b, "pb"));
+		print_status(stack_a, stack_b);
+		printf("op: %s\n", ex_op(&stack_a, &stack_b, "pb"));
+		print_status(stack_a, stack_b);
+		printf("op: %s\n", ex_op(&stack_a, &stack_b, "sb"));
+		print_status(stack_a, stack_b);
+		printf("op: %s\n", ex_op(&stack_a, &stack_b, "sa"));
+		print_status(stack_a, stack_b);
+		printf("op: %s\n", ex_op(&stack_a, &stack_b, "sa"));
+		print_status(stack_a, stack_b);
+		printf("op: %s\n", ex_op(&stack_a, &stack_b, "ra"));
+		print_status(stack_a, stack_b);
+		printf("op: %s\n", ex_op(&stack_a, &stack_b, "rb"));
+		print_status(stack_a, stack_b);
+		printf("op: %s\n", ex_op(&stack_a, &stack_b, "rra"));
+		print_status(stack_a, stack_b);
+		printf("op: %s\n", ex_op(&stack_a, &stack_b, "rrb"));
+		print_status(stack_a, stack_b);
 	}
 }

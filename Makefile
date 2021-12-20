@@ -6,7 +6,7 @@
 #    By: nprimo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/19 20:11:29 by nprimo            #+#    #+#              #
-#    Updated: 2021/12/20 19:39:00 by nprimo           ###   ########.fr        #
+#    Updated: 2021/12/20 19:51:01 by nprimo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ CFLAGS = -Wall -Werror -Wextra
 RM = rm -f
 
 %.o: %.c
-	$(CC) $(CFLAGS) -I $(INC_D) $(LIBFT) -c $< -o $@
+	$(CC) $(CFLAGS) -I $(INC_D) -L $(LIBFT_D) -c $< -o $@
 
 $(NAME): $(LIBFT) $(OBJS)
 
@@ -40,6 +40,7 @@ $(LIBFT):
 
 clean:
 	$(MAKE) clean -C ./libft/
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(LIBFT) $(NAME)

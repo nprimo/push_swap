@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 11:18:00 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/20 11:19:09 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/20 11:32:33 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_stcadd_back(t_stack **stack, t_stack *new)
 {
+	t_stack	*last;
+
 	if (*stack == NULL)
 		*stack = new;
 	else

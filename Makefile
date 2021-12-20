@@ -6,12 +6,12 @@
 #    By: nprimo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/19 20:11:29 by nprimo            #+#    #+#              #
-#    Updated: 2021/12/20 16:55:25 by nprimo           ###   ########.fr        #
+#    Updated: 2021/12/20 17:00:59 by nprimo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = $(wildcard src/*.c)
-OBJS = $(SRCRS:.c=.o)
+OBJS = $(SRCS:.c=.o)
 
 INC_D = ./inc
 INC = ./inc/push_swap.h

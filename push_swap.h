@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:21:19 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/20 09:47:50 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/20 11:27:26 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,12 @@ typedef struct s_stack
 	t_stack	*next;
 }	t_stack;
 
-t_list	*init_stack(int ac, char **av);
+// Stack functions prototypes
+t_stack	*ft_stcnew(int num);
+void	ft_stcadd_back(t_stack **stack, t_stack *new);
+t_stack *ft_stclast(t_stack *stack);
+
+t_stack	*init_stack(int ac, char **av);
 void	ft_swap(t_list **stack);
 void	ft_push(t_list **getter, t_list **giver);
 void	ft_rotate(t_list **stack);

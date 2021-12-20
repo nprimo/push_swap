@@ -6,15 +6,15 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:35:33 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/16 16:39:30 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/20 11:27:17 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*init_stack(int ac, char **av)
+t_stack	*init_stack(int ac, char **av)
 {
-	t_list	*stack;
+	t_stack	*stack;
 	int		pos;
 	char	**inputs;
 
@@ -24,7 +24,7 @@ t_list	*init_stack(int ac, char **av)
 		pos = 1;
 		while (pos < ac)
 		{
-			ft_lstadd_back(&stack, ft_lstnew(av[pos]));
+			ft_stcadd_back(&stack, ft_stcnew(av[pos]));
 			pos++;
 		}
 	}
@@ -34,7 +34,7 @@ t_list	*init_stack(int ac, char **av)
 		pos = 0;
 		while (inputs[pos])
 		{
-			ft_lstadd_back(&stack, ft_lstnew(inputs[pos]));
+			ft_stcadd_back(&stack, ft_stcnew(inputs[pos]));
 			pos++;
 		}
 	}

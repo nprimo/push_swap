@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:21:19 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/20 11:27:26 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/20 11:31:25 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 typedef struct s_stack
 {
-	int		num;
-	t_stack	*next;
+	int				num;
+	struct s_stack	*next;
 }	t_stack;
 
 // Stack functions prototypes

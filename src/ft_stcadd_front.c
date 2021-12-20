@@ -6,9 +6,11 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 11:49:16 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/20 11:50:17 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/20 11:57:38 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 void	ft_stcadd_front(t_stack **stack, t_stack *new)
 {

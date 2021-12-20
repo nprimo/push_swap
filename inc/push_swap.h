@@ -6,14 +6,14 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:21:19 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/20 12:23:31 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/20 14:53:07 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 
 typedef struct s_stack
 {

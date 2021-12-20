@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:35:33 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/20 11:27:17 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/20 11:36:14 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_stack	*init_stack(int ac, char **av)
 		pos = 1;
 		while (pos < ac)
 		{
-			ft_stcadd_back(&stack, ft_stcnew(av[pos]));
+			ft_stcadd_back(&stack, ft_stcnew(ft_atoi(av[pos])));
 			pos++;
 		}
 	}
@@ -34,7 +34,7 @@ t_stack	*init_stack(int ac, char **av)
 		pos = 0;
 		while (inputs[pos])
 		{
-			ft_stcadd_back(&stack, ft_stcnew(inputs[pos]));
+			ft_stcadd_back(&stack, ft_stcnew(ft_atoi(inputs[pos])));
 			pos++;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:35:33 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/20 15:51:20 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/20 16:00:08 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,20 @@ static int	is_in_int_range(char *s)
 		return (1);
 }
 
+static int	is_in_stack(char *s, t_stack *stack)
+{
+	int	num;
+
+	num = (int) ft_atoi(s);
+	while (stack)
+	{
+		if (num == stack->num)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}
+
 t_stack	*init_stack(int ac, char **av)
 {
 	t_stack	*stack;
@@ -53,7 +67,8 @@ t_stack	*init_stack(int ac, char **av)
 	pos = 0;
 	while (inputs[pos])
 	{
-		if (is_alldigit(inputs[pos]) && is_in_int_range(inputs[pos]))
+		if (is_alldigit(inputs[pos]) && is_in_int_range(inputs[pos])
+			&& !is_in_stack(inputs[pos], stack))
 		{
 			num = (int) ft_atoi(inputs[pos]);
 			ft_stcadd_back(&stack, ft_stcnew(num));

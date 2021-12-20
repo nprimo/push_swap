@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:23:08 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/16 12:04:45 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/20 11:31:46 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,30 @@
 
 #include <stdio.h>
 
-void	print_stack(t_list *head)
+void	print_stack(t_stack *head)
 {
 	while (head)
 	{
-		printf("%s\n", head->content);
+		printf("%d\n", head->num);
 		head = head->next;
 	}
 }
 
+
 int	main(int ac, char **av)
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
+	t_stack	*stack_a;
+	//t_stack	*stack_b;
 
 	stack_a = NULL;
-	stack_b = NULL;
+	//stack_b = NULL;
 	if (ac > 1)
 	{
 		// Check init_stack
 		printf("--Check init_stack--\n");
 		stack_a = init_stack(ac, av);
 		print_stack(stack_a); 
+		/*
 		// Check swap
 		printf("--Check ft_swap--\n");
 		ft_swap(&stack_a);
@@ -62,5 +64,6 @@ int	main(int ac, char **av)
 		printf("--Check ft_rev_rotate (a)--\n");
 		ft_rev_rotate(&stack_a);
 		print_stack(stack_a);
+		*/
 	}
 }

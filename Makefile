@@ -6,7 +6,7 @@
 #    By: nprimo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/19 20:11:29 by nprimo            #+#    #+#              #
-#    Updated: 2021/12/20 17:00:59 by nprimo           ###   ########.fr        #
+#    Updated: 2021/12/20 19:39:00 by nprimo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,6 @@ RM = rm -f
 	$(CC) $(CFLAGS) -I $(INC_D) $(LIBFT) -c $< -o $@
 
 $(NAME): $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $?
 
 .PHONY: all re clean fclean
 

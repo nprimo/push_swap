@@ -6,12 +6,17 @@
 #    By: nprimo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/19 20:11:29 by nprimo            #+#    #+#              #
-#    Updated: 2021/12/20 19:51:01 by nprimo           ###   ########.fr        #
+#    Updated: 2021/12/22 14:11:04 by nprimo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = $(wildcard src/*.c)
-OBJS = $(SRCS:.c=.o)
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra
+
+SRC = src
+OBJ = obj
+SRCS = $(wildcard $(SRC)/*.c)
+OBJS = $(patsubst $(SRC)/%.c, $(OBJ)/%.o, $(SRCS))
 
 INC_D = ./inc
 INC = ./inc/push_swap.h
@@ -21,14 +26,15 @@ LIBFT = ./libft/libft.a
 
 NAME = push_swap
 
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra
 RM = rm -f
 
-%.o: %.c
+$(OBJ)/%.o: $(SRC)/%.c
 	$(CC) $(CFLAGS) -I $(INC_D) -L $(LIBFT_D) -c $< -o $@
 
 $(NAME): $(LIBFT) $(OBJS)
+
+$(OBJ):
+	mkdir $@
 
 .PHONY: all re clean fclean
 

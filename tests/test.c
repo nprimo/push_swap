@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:23:08 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/23 12:41:34 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/23 12:52:48 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int	main(int ac, char **av)
 
 	ft_stcnew_test();
 	ft_stcadd_back_test();
+	ft_stclast_test();
 	stack_a = NULL;
 	stack_b = NULL;
 	if (ac > 1)

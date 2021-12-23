@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 12:30:54 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/23 12:42:42 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/23 12:52:26 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 
 void	ft_stcnew_test(void);
 void	ft_stcadd_back_test(void);
+void	ft_stclast_test(void);
 
 #endif

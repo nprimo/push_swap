@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 12:30:54 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/23 15:01:31 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/23 15:07:14 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ void	ft_stcclear_test(void);
 
 // test stack basic func
 void	init_stack_test(void);
+void	ft_swap_test(void);
 
 #endif

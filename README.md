@@ -1,4 +1,4 @@
-# Push swap
+# Push swap (*in development*)
 
 A program that sort a stack with a limited number of actions available and with the use of an additional temporary stack.   
 Actions available:

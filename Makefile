@@ -6,7 +6,7 @@
 #    By: nprimo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/19 20:11:29 by nprimo            #+#    #+#              #
-#    Updated: 2021/12/23 12:18:34 by nprimo           ###   ########.fr        #
+#    Updated: 2021/12/23 12:45:05 by nprimo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,8 @@ $(NAME): $(OBJS) $(LIBFT) $(INC)
 
 test: $(LIBFT)
 	$(CC) $(CFLAGS) -g $(SRCS) $(wildcard ./tests/*.c) -I $(INC_D) $(LIBFT) 
+	./a.out
+	$(RM) ./a.out
 
 $(OBJ):
 	mkdir $@
@@ -53,6 +55,6 @@ clean:
 	$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(LIBFT) $(NAME) ./a.out
+	$(RM) $(LIBFT) $(NAME) 
 
 re: fclean all

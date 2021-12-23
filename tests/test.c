@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:23:08 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/23 15:17:30 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/23 17:17:46 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ int	main(int ac, char **av)
 	init_stack_test();
 	ft_swap_test();
 	ft_push_test();
+	ft_putstr_fd("\n", 1);
+	pos_min_test();
 	stack_a = NULL;
 	stack_b = NULL;
 	if (ac > 1)

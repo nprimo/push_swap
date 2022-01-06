@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 17:24:15 by nprimo            #+#    #+#             */
-/*   Updated: 2021/11/04 10:54:39 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/06 17:02:38 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_list	*head;
 	t_list	*tmp;
 
-	head = *lst;
-	while (head)
+	if (!lst || !del)
+		return ;
+	while (*lst)
 	{
-		tmp = head;
-		ft_lstdelone(head, del);
-		head = tmp->next;
+		tmp = *lst;
+		*lst = (*lst)->next;
+		ft_lstdelone(tmp, del);
 	}
-	*lst = NULL;
 }

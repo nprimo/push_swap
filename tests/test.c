@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:23:08 by nprimo            #+#    #+#             */
-/*   Updated: 2021/12/23 17:17:46 by nprimo           ###   ########.fr       */
+/*   Updated: 2021/12/25 19:27:22 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,24 +65,12 @@ int	main(int ac, char **av)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	ft_stcnew_test();
-	ft_stcadd_back_test();
-	ft_stclast_test();
-	ft_stcadd_front_test();
-	ft_stcsize_test();
-	ft_stcclear_test();
-	init_stack_test();
-	ft_swap_test();
-	ft_push_test();
-	ft_putstr_fd("\n", 1);
-	pos_min_test();
-	stack_a = NULL;
-	stack_b = NULL;
 	if (ac > 1)
 	{
 		// Check init_stack
 		printf("--Check init_stack--\n");
 		stack_a = init_stack(ac, av);
+		stack_b = NULL;
 		print_stack(stack_a); 
 		// Check is_sorted
 		printf("--Check is_sorted--\n");
@@ -112,5 +100,21 @@ int	main(int ac, char **av)
 		print_status(stack_a, stack_b);
 		ft_stcclear(&stack_a);
 		ft_stcclear(&stack_b);
+	}
+	else
+	{
+		ft_stcnew_test();
+		ft_stcadd_back_test();
+		ft_stclast_test();
+		ft_stcadd_front_test();
+		ft_stcsize_test();
+		ft_stcclear_test();
+		init_stack_test();
+		ft_swap_test();
+		ft_push_test();
+		ft_putstr_fd("\n", 1);
+		pos_min_test();
+		stack_a = NULL;
+		stack_b = NULL;
 	}
 }

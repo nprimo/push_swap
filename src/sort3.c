@@ -6,37 +6,32 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 15:26:26 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/06 15:47:34 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/06 18:14:34 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*sort3(t_stack *stack)
+void	sort3(t_stack *stack, char **comm)
 {
-	t_list	*comm;
+	char	*tmp;
 
-	comm = NULL;
+	tmp = *comm;
 	if (ft_stcsize(stack) == 2)
 	{
-		ft_lstadd_back(&comm, ft_lstnew("sa"));
-		return (comm);
+		*comm = ft_strjoin(*comm, "sa\n");
+		free(tmp);
+		return ;
 	}
 	if (is_rev_sorted(stack))
-	{
-		ft_lstadd_back(&comm, ft_lstnew("ra"));
-		ft_lstadd_back(&comm, ft_lstnew("sa"));
-	}
+		*comm = ft_strjoin(*comm, "ra\nsa\n");
 	else if (pos_min(stack) == 0)
-	{
-		ft_lstadd_back(&comm, ft_lstnew("sa"));
-		ft_lstadd_back(&comm, ft_lstnew("ra"));
-	}
+		*comm = ft_strjoin(*comm, "sa\nra\n");
 	else if (pos_min(stack) == 2)
-		ft_lstadd_back(&comm, ft_lstnew("rra"));
+		*comm = ft_strjoin(*comm, "rra\n");
 	else if (stack->num > ft_stclast(stack)->num)
-		ft_lstadd_back(&comm, ft_lstnew("ra"));
+		*comm = ft_strjoin(*comm, "ra\n");
 	else
-		ft_lstadd_back(&comm, ft_lstnew("sa"));
-	return (comm);
+		*comm = ft_strjoin(*comm, "sa\n");
+	free(tmp);
 }

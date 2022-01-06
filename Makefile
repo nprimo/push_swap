@@ -6,7 +6,7 @@
 #    By: nprimo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/19 20:11:29 by nprimo            #+#    #+#              #
-#    Updated: 2021/12/23 15:05:13 by nprimo           ###   ########.fr        #
+#    Updated: 2022/01/06 18:45:39 by nprimo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ $(LIBFT):
 
 clean:
 	$(MAKE) clean -C ./libft/
-	$(RM) $(OBJS)
+	$(RM) $(wildcard $(OBJ)/*.o) 
 
 fclean: clean
 	$(RM) $(LIBFT) $(NAME) 

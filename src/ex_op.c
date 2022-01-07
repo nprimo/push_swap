@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 17:30:29 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/07 14:58:48 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/07 21:27:15 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,11 @@ char	*ex_op(t_stack **a, t_stack **b, char *op)
 		ft_push(a, b);
 	if (ft_strncmp(op, "pb", 2) == 0)
 		ft_push(b, a);
-	if (ft_strncmp(op, "ra", 2) == 0 || ft_strncmp(op, "rr", 2) == 0)
+	if (ft_strlen(op) == 2
+		&& (ft_strncmp(op, "ra", 2) == 0 || ft_strncmp(op, "rr", 2) == 0))
 		ft_rotate(a);
-	if (ft_strncmp(op, "rb", 2) == 0 || ft_strncmp(op, "rr", 2) == 0)
+	if (ft_strlen(op) == 2
+		&& (ft_strncmp(op, "rb", 2) == 0 || ft_strncmp(op, "rr", 2) == 0))
 		ft_rotate(b);
 	if (ft_strncmp(op, "rra", 3) == 0 || ft_strncmp(op, "rrr", 3) == 0)
 		ft_rev_rotate(a);

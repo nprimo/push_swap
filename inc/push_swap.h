@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:21:19 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/07 19:01:01 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/07 19:22:56 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ int		pos_min(t_stack *stack);
 t_stack	*get_lis(t_stack *stack);
 char	*sort3(t_stack *stack);
 int		add_op(t_stack **stc_a, t_stack **stc_b, char *op, char **comm);
+char	*ins_sort(t_stack *stack);
 
 #endif

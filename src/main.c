@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 15:20:32 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/07 19:03:38 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/07 19:22:23 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	main(int ac, char **av)
 			return (1);
 		if (ft_stcsize(stack_a) <= 3)
 			comm = sort3(stack_a);
+		else
+			comm = ins_sort(stack_a);
 		if (!comm)
 			return (0);
 		ft_putstr_fd(comm, 1);

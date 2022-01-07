@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 15:20:32 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/06 18:29:02 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/07 15:42:18 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,19 @@ int	main(int ac, char **av)
 	t_stack	*stack_a;
 	char	*comm;
 
-	comm = ft_strdup("");
-	if (!comm)
-		return (return_error());
 	if (ac > 1)
 	{
+		comm = ft_strdup("");
 		stack_a = init_stack(ac, av);
-		if (!stack_a)
+		if (!stack_a || !comm)
 			return (return_error());
 		if (is_sorted(stack_a))
 			return (1);
 		if (ft_stcsize(stack_a) <= 3)
-			sort3(stack_a, &comm);
+		{
+			if (!sort3(stack_a, &comm))
+				return (return_error());
+		}
 		ft_putstr_fd(comm, 1);
 		free(comm);
 	}

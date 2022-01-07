@@ -6,13 +6,13 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 15:26:26 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/06 18:14:34 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/07 15:25:21 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort3(t_stack *stack, char **comm)
+int	sort3(t_stack *stack, char **comm)
 {
 	char	*tmp;
 
@@ -21,7 +21,9 @@ void	sort3(t_stack *stack, char **comm)
 	{
 		*comm = ft_strjoin(*comm, "sa\n");
 		free(tmp);
-		return ;
+		if (!(*comm))
+			return (0);
+		return (1);
 	}
 	if (is_rev_sorted(stack))
 		*comm = ft_strjoin(*comm, "ra\nsa\n");
@@ -34,4 +36,7 @@ void	sort3(t_stack *stack, char **comm)
 	else
 		*comm = ft_strjoin(*comm, "sa\n");
 	free(tmp);
+	if (!(*comm))
+		return (0);
+	return (1);
 }

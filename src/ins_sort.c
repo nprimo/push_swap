@@ -17,9 +17,9 @@ static int	push_min(t_stack **stc_a, t_stack **stc_b, char **comm)
 	int	size;
 
 	size = ft_stcsize(*stc_a);
-	while (pos_min(*stc_a) != 0)
+	while (get_pos_min(*stc_a) != 0)
 	{
-		if (pos_min(*stc_a) > size / 2)
+		if (get_pos_min(*stc_a) > size / 2)
 		{
 			if (!add_op(stc_a, stc_b, "rra", comm))
 				return (0);

@@ -41,7 +41,7 @@ void	ft_rev_rotate(t_stack **stack);
 int		is_sorted(t_stack *stack);
 int		is_rev_sorted(t_stack *stack);
 char	*ex_op(t_stack **a, t_stack **b, char *op);
-int		pos_min(t_stack *stack);
+int		get_pos_min(t_stack *stack);
 t_stack	*get_lis(t_stack *stack);
 char	*sort3(t_stack *stack);
 int		add_op(t_stack **stc_a, t_stack **stc_b, char *op, char **comm);

@@ -25,9 +25,9 @@ char	*sort3(t_stack *stack)
 	}
 	if (is_rev_sorted(stack))
 		comm = ft_strdup("ra\nsa\n");
-	else if (pos_min(stack) == 0)
+	else if (get_pos_min(stack) == 0)
 		comm = ft_strdup("sa\nra\n");
-	else if (pos_min(stack) == 2)
+	else if (get_pos_min(stack) == 2)
 		comm = ft_strdup("rra\n");
 	else if (stack->num > ft_stclast(stack)->num)
 		comm = ft_strdup("ra\n");

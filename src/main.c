@@ -28,15 +28,14 @@ int	main(int ac, char **av)
 		stack_a = init_stack(ac, av);
 		if (!stack_a)
 			return (return_error());
-		if (is_sorted(stack_a))
-			return (1);
-		if (ft_stcsize(stack_a) <= 3)
+		if (ft_stcsize(stack_a) <= 3 && !is_sorted(stack_a))
 			comm = sort3(stack_a);
-		else
-			comm = ins_sort(stack_a);
+		else if (!is_sorted(stack_a))
+			comm = quick_sort(stack_a);
 		if (!comm)
 			return (0);
 		ft_putstr_fd(comm, 1);
+		ft_stcclear(&stack_a);
 		free(comm);
 	}
 	return (1);

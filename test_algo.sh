@@ -1,7 +1,7 @@
 # ! /usr/bin/env bash
 # File: test_algo.sh
 
-n_tries=10
+n_tries=100
 max_res=0
 min_res=$(echo "$1 * $1" | bc)
 mean_res=0
@@ -28,3 +28,4 @@ done
 echo "Best case: $min_res"
 echo "Worst case: $max_res"
 echo "average case: $(echo "$mean_res  / $n_tries" | bc)"
+

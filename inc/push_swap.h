@@ -46,5 +46,6 @@ t_stack	*get_lis(t_stack *stack);
 char	*sort3(t_stack *stack);
 int		add_op(t_stack **stc_a, t_stack **stc_b, char *op, char **comm);
 char	*ins_sort(t_stack *stack);
+char	*quick_sort(t_stack *stc_a);
 
 #endif

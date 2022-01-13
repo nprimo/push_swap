@@ -6,11 +6,26 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 14:46:21 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/13 17:49:10 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/13 17:57:37 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	free_ops_list(char **av)
+{
+	int	count;
+
+	if (!av)
+		return ;
+	count = 0;
+	while (av[count])
+	{
+		free(av[count]);
+		count++;
+	}
+	free(av);
+}
 
 int	add_op(t_stack **stc_a, t_stack **stc_b, char *ops, char **comm)
 {
@@ -28,6 +43,7 @@ int	add_op(t_stack **stc_a, t_stack **stc_b, char *ops, char **comm)
 		ex_op(stc_a, stc_b, ops_list[count]);
 		count++;
 	}
+	free_ops_list(ops_list);
 	*comm = ft_strjoin(tmp, ops);
 	if (!(*comm))
 		return (0);

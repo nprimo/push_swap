@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 15:20:32 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/07 19:22:23 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/13 17:43:27 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,35 @@ static int	return_error(void)
 	return (0);
 }
 
+static int	ft_sort(t_stack **stc_a, t_stack **stc_b, char **comm)
+{
+	if (is_sorted(*stc_a))
+		return (1);
+	if (ft_stcsize(*stc_a) <= 3)
+	{
+		if (!sort3(stc_a, stc_b, comm))
+			return (0);
+	}
+	if (!comm)
+		return (0);
+	return (1);
+}
+
 int	main(int ac, char **av)
 {
-	t_stack	*stack_a;
+	t_stack	*stc_a;
 	char	*comm;
 
 	if (ac > 1)
 	{
-		stack_a = init_stack(ac, av);
-		if (!stack_a)
+		stc_a = init_stack(ac, av);
+		comm = ft_strdup("");
+		if (!stc_a || !comm)
 			return (return_error());
-		if (ft_stcsize(stack_a) <= 3 && !is_sorted(stack_a))
-			comm = sort3(stack_a);
-		else if (!is_sorted(stack_a))
-			comm = quick_sort(stack_a);
-		if (!comm)
+		if (!ft_sort(&stc_a, NULL, &comm))
 			return (0);
 		ft_putstr_fd(comm, 1);
-		ft_stcclear(&stack_a);
+		ft_stcclear(&stc_a);
 		free(comm);
 	}
 	return (1);

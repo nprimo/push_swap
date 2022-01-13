@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 15:26:26 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/13 17:50:03 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/13 22:00:41 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	sort3(t_stack **stc_a, t_stack **stc_b, char **comm)
 {
+	if (is_sorted(*stc_a))
+		return (1);
 	if (ft_stcsize(*stc_a) == 2)
 	{
 		if (!add_op(stc_a, stc_b, "sa", comm))

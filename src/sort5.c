@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 17:59:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/14 15:19:54 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/14 15:23:47 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ static int	push2(t_stack **stc_a, t_stack **stc_b, char **comm)
 	return (1);
 }
 
-static int put_min_top(t_stack **stc_a, t_stack **stc_b, char **comm)
+static int	put_min_top(t_stack **stc_a, t_stack **stc_b, char **comm)
 {
-	int 	pos_min;
+	int		pos_min;
 	char	*op;
 
 	pos_min = get_stcpos(*stc_a, get_stc_min(*stc_a));

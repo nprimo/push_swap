@@ -6,25 +6,11 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 17:59:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/14 15:23:47 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/14 16:11:46 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	get_stc_min(t_stack *stc)
-{
-	int	min;
-
-	min = INT_MAX;
-	while (stc)
-	{
-		if (stc->num < min)
-			min = stc->num;
-		stc = stc->next;
-	}
-	return (min);
-}
 
 static int	do_move(t_stack **stc_a, t_stack **stc_b, int move, char **comm)
 {
@@ -55,7 +41,7 @@ static int	push2(t_stack **stc_a, t_stack **stc_b, char **comm)
 	int	move;
 
 	rel_pos = get_rel_pos(*stc_a, (*stc_b)->num);
-	pos = get_stcpos(*stc_a, get_stc_min(*stc_a)) + rel_pos;
+	pos = get_pos_min(*stc_a) + rel_pos;
 	if (pos > ft_stcsize(*stc_a))
 		pos = pos - ft_stcsize(*stc_a);
 	if (pos > (ft_stcsize(*stc_a) - 1) / 2 )
@@ -74,7 +60,7 @@ static int	put_min_top(t_stack **stc_a, t_stack **stc_b, char **comm)
 	int		pos_min;
 	char	*op;
 
-	pos_min = get_stcpos(*stc_a, get_stc_min(*stc_a));
+	pos_min = get_pos_min(*stc_a);
 	if (pos_min > ((ft_stcsize(*stc_a) - 1) / 2))
 		op = ft_strdup("rra");
 	else

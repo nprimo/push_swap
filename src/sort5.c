@@ -6,58 +6,28 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 17:59:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/13 23:09:45 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/14 15:19:54 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	get_stc_max(t_stack *stc)
+static int	get_stc_min(t_stack *stc)
 {
-	int	max;
+	int	min;
 
-	max = INT_MIN;
+	min = INT_MAX;
 	while (stc)
 	{
-		if (stc->num > max)
-			max = stc->num;
+		if (stc->num < min)
+			min = stc->num;
 		stc = stc->next;
 	}
-	return (max);
-}
-
-static int	get_rel_pos(t_stack *stc, int num)
-{
-	int	rel_pos;
-	int	pos_max;
-
-	rel_pos = -1;
-	pos_max = get_stcpos(stc, get_stc_max(stc));
-	while ((pos_max + rel_pos) >= 0)
-	{
-		if (get_stcnum(stc, pos_max + rel_pos) < num
-			&& get_stcnum(stc, pos_max + rel_pos + 1) > num)
-			return (rel_pos);
-		rel_pos--;
-	}
-	rel_pos = 1;
-	while ((pos_max + rel_pos + 1) < ft_stcsize(stc))
-	{
-		if (get_stcnum(stc, pos_max + rel_pos) < num
-			&& get_stcnum(stc, pos_max + rel_pos + 1) > num)
-			return (rel_pos);
-		rel_pos++;
-	}
-	return (0);
+	return (min);
 }
 
 static int	do_move(t_stack **stc_a, t_stack **stc_b, int move, char **comm)
 {
-	if (move == 0 && (*stc_a)->num > ft_stclast(*stc_a)->num)
-	{
-		if (!add_op(stc_a, stc_b, "ra", comm))
-			return (0);
-	}
 	while (move != 0)
 	{
 		if (move > 0)
@@ -85,20 +55,37 @@ static int	push2(t_stack **stc_a, t_stack **stc_b, char **comm)
 	int	move;
 
 	rel_pos = get_rel_pos(*stc_a, (*stc_b)->num);
-	pos = get_stcpos(*stc_a, get_stc_max(*stc_a)) + rel_pos;
-	if (pos == 0 || pos == (ft_stcsize(*stc_a) - 1))
-		move = 0;
+	pos = get_stcpos(*stc_a, get_stc_min(*stc_a)) + rel_pos;
+	if (pos > ft_stcsize(*stc_a))
+		pos = pos - ft_stcsize(*stc_a);
+	if (pos > (ft_stcsize(*stc_a) - 1) / 2 )
+		move = pos - ft_stcsize(*stc_a);
 	else
-	{
-		if (pos > (ft_stcsize(*stc_a) - 1) / 2 )
-			move = (ft_stcsize(*stc_a) - 1) / 2 - pos;
-		else
-			move = pos;
-	}
+		move = pos;
 	if (!do_move(stc_a, stc_b, move, comm))
 		return (0);
 	if (*stc_b)
 		return (push2(stc_a, stc_b, comm));
+	return (1);
+}
+
+static int put_min_top(t_stack **stc_a, t_stack **stc_b, char **comm)
+{
+	int 	pos_min;
+	char	*op;
+
+	pos_min = get_stcpos(*stc_a, get_stc_min(*stc_a));
+	if (pos_min > ((ft_stcsize(*stc_a) - 1) / 2))
+		op = ft_strdup("rra");
+	else
+		op = ft_strdup("ra");
+	if (!op)
+		return (0);
+	while ((*stc_a)->num > ft_stclast(*stc_a)->num)
+	{
+		if (!add_op(stc_a, stc_b, op, comm))
+			return (0);
+	}	
 	return (1);
 }
 
@@ -113,10 +100,7 @@ int	sort5(t_stack **stc_a, t_stack **stc_b, char **comm)
 		return (0);
 	if (!push2(stc_a, stc_b, comm))
 		return (0);
-	while ((*stc_a)->num > ft_stclast(*stc_a)->num)
-	{
-		if (!add_op(stc_a, stc_b, "ra", comm))
-			return (0);
-	}	
+	if (!put_min_top(stc_a, stc_b, comm))
+		return (0);
 	return (1);
 }

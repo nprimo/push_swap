@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 17:59:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/14 16:11:46 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/14 17:17:25 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ static int	put_min_top(t_stack **stc_a, t_stack **stc_b, char **comm)
 		if (!add_op(stc_a, stc_b, op, comm))
 			return (0);
 	}	
+	free(op);
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:21:19 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/15 18:40:48 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/15 19:44:57 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ int		add_op(t_stack **stc_a, t_stack **stc_b, char *op, char **comm);
 char	*ins_sort(t_stack *stack);
 int		quick_sort(t_stack **stc_a, t_stack **stc_b, char **comm);
 int		get_rel_pos(t_stack *stc, int num);
+t_stack	*init_w_stc(t_stack *stc);
+int		radix_sort(t_stack **stc_a, t_stack **stc_b, char **comm, int count);
 
 #endif

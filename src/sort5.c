@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 17:59:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/14 18:00:19 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/15 20:00:06 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	sort5(t_stack **stc_a, t_stack **stc_b, char **comm)
 	}
 	if (!sort3(stc_a, stc_b, comm))
 		return (0);
-	if (!push2(stc_a, stc_b, comm))
+	if (*stc_b && !push2(stc_a, stc_b, comm))
 		return (0);
 	if (!put_min_top(stc_a, stc_b, comm))
 		return (0);

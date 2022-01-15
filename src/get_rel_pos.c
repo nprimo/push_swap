@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 13:21:00 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/14 15:23:22 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/15 19:06:21 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	get_rel_pos(t_stack *stc, int num)
 	int		pos_min;
 	t_stack	*last;
 
+	if (get_stc_min(stc) > num)
+		return (0);
 	size = ft_stcsize(stc);
 	pos_min = get_stcpos(stc, get_stc_min(stc));
 	last = ft_stclast(stc);
@@ -49,5 +51,5 @@ int	get_rel_pos(t_stack *stc, int num)
 		rel_pos++;
 	}
 	last->next = NULL;
-	return (0);
+	return (ft_stcsize(stc));
 }

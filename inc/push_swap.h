@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:21:19 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/16 16:10:08 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/16 16:15:08 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,8 @@ int		is_rev_sorted(t_stack *stack);
 int		add_op(t_stack **stc_a, t_stack **stc_b, char *op, char **comm);
 int		sort_small_stc(t_stack **stc_a, t_stack **stc_b, char **comm);
 int		get_rel_pos(t_stack *stc, int num);
-
 int		get_pos_min(t_stack *stack);
-
-int		radix_sort(t_stack **stc_a, t_stack **stc_b, char **comm, int count);
-
-// unused
-t_stack	*get_lis(t_stack *stack);
-char	*ins_sort(t_stack *stack);
-int		quick_sort(t_stack **stc_a, t_stack **stc_b, char **comm);
 t_stack	*init_w_stc(t_stack *stc);
+int		radix_sort(t_stack **stc_a, t_stack **stc_b, char **comm, int count);
 
 #endif

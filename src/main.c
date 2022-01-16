@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 15:20:32 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/15 19:54:09 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/16 15:58:09 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ft_sort(t_stack **stc_a, t_stack **stc_b, char **comm)
 		return (1);
 	if (ft_stcsize(*stc_a) <= 5)
 	{
-		if (!sort5(stc_a, stc_b, comm))
+		if (!sort_small_stc(stc_a, stc_b, comm))
 			return (0);
 	}
 	else

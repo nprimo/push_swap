@@ -1,16 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort5.c                                            :+:      :+:    :+:   */
+/*   sort_small_stc.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 17:59:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/15 20:00:06 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/16 15:59:27 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	sort3(t_stack **stc_a, t_stack **stc_b, char **comm)
+{
+	if (is_sorted(*stc_a))
+		return (1);
+	if (ft_stcsize(*stc_a) == 2)
+	{
+		if (!add_op(stc_a, stc_b, "sa", comm))
+			return (0);
+		return (1);
+	}
+	if (is_rev_sorted(*stc_a) && add_op(stc_a, stc_b, "ra\nsa", comm))
+		return (1);
+	else if (get_pos_min(*stc_a) == 0 && add_op(stc_a, stc_b, "sa\nra", comm))
+		return (1);
+	else if (get_pos_min(*stc_a) == 2 && add_op(stc_a, stc_b, "rra", comm))
+		return (1);
+	else if ((*stc_a)->num > ft_stclast(*stc_a)->num
+		&& add_op(stc_a, stc_b, "ra", comm))
+		return (1);
+	if (add_op(stc_a, stc_b, "sa", comm))
+		return (1);
+	return (0);
+}
 
 static int	do_move(t_stack **stc_a, t_stack **stc_b, int move, char **comm)
 {
@@ -76,7 +100,7 @@ static int	put_min_top(t_stack **stc_a, t_stack **stc_b, char **comm)
 	return (1);
 }
 
-int	sort5(t_stack **stc_a, t_stack **stc_b, char **comm)
+int	sort_small_stc(t_stack **stc_a, t_stack **stc_b, char **comm)
 {
 	while (ft_stcsize(*stc_a) > 3)
 	{

@@ -6,7 +6,7 @@
 #    By: nprimo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/19 20:11:29 by nprimo            #+#    #+#              #
-#    Updated: 2022/01/06 18:45:39 by nprimo           ###   ########.fr        #
+#    Updated: 2022/01/17 11:40:37 by nprimo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,10 +33,6 @@ $(OBJ)/%.o: $(SRC)/%.c
 
 $(NAME): $(OBJS) $(LIBFT) $(INC) 
 	$(CC) $(CLFAGS) -o $@ $^ -I $(INC_D) $(LIBFT)
-
-test: $(LIBFT)
-	$(CC) $(CFLAGS) -g $(SRCS) $(wildcard ./tests/*.c) -I $(INC_D) $(LIBFT) 
-	@./a.out
 
 $(OBJ):
 	mkdir $@

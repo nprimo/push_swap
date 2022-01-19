@@ -6,7 +6,7 @@
 #    By: nprimo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/19 20:11:29 by nprimo            #+#    #+#              #
-#    Updated: 2022/01/17 15:31:57 by nprimo           ###   ########.fr        #
+#    Updated: 2022/01/19 15:25:12 by nprimo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,18 @@ CFLAGS = -Wall -Werror -Wextra
 
 SRC = src
 OBJ = obj
-COMM = comm
 SRCS = $(wildcard $(SRC)/*.c)
-COMMS = $(wildcard $(COMM)/*.c)
 OBJS = $(patsubst $(SRC)/%.c, $(OBJ)/%.o, $(SRCS))
-C_OBJS = $(patsubst $(COMM)/%.c, $(OBJ)/%.o, $(COMMS))
+
+PSH = psh
+O_PSH = o_psh
+PSHS = $(wildcard $(PSH)/*.c)
+O_PSHS = $(patsubst $(PSH)/%.c, $(O_PSH)/%.o, $(PSHS))
+
+CHK = chk
+O_CHK = o_chk
+CHKS = $(wildcard $(CHK)/*.c)
+O_CHKS = $(patsubst $(CHK)/%.c, $(O_CHK)/%.o, $(CHKS))
 
 INC_D = ./inc
 INC = ./inc/push_swap.h
@@ -29,23 +36,33 @@ LIBFT = ./libft/libft.a
 
 NAME = push_swap
 
-RM = rm -f
+RM = rm -rf
 
-$(OBJ)/%.o: $(SRC)/%.c 
+$(OBJ)/%.o: $(SRC)/%.c
+	@ mkdir -p $(OBJ)
 	$(CC) $(CFLAGS) -I $(INC_D) -L $(LIBFT_D) -c $< -o $@
 
-$(OBJ)/%.o: $(COMM)/%.c 
+$(O_PSH)/%.o: $(PSH)/%.c 
+	@ mkdir -p $(O_PSH)
 	$(CC) $(CFLAGS) -I $(INC_D) -L $(LIBFT_D) -c $< -o $@
 
-$(NAME): $(OBJS) $(C_OBJS) $(LIBFT) $(INC) 
-	$(CC) $(CLFAGS) -o $@ $^ -I $(INC_D) $(LIBFT)
+$(O_CHK)/%.o: $(CHK)/%.c 
+	@ mkdir -p $(O_CHK)
+	$(CC) $(CFLAGS) -I $(INC_D) -L $(LIBFT_D) -c $< -o $@
 
-$(OBJ):
-	mkdir $@
+$(NAME): $(LIBFT) $(OBJS) $(O_PSHS)
+	$(CC) $(CFLAGS) -o $@ $^ -I $(INC_D) $(LIBFT)
 
-.PHONY: all re clean fclean
+.PHONY: all checker re clean fclean
 
-all: $(NAME)
+all: $(NAME) checker
+
+checker: $(LIBFT) $(OBJS) $(O_CHKS) 
+	$(CC) $(CFLAGS) -o $@ $^ -I $(INC_D) $(LIBFT)
+
+something:
+	@ echo $(PSHS)
+	@ echo $(CHKS)
 
 $(LIBFT):
 	$(MAKE) -C ./libft/
@@ -54,8 +71,9 @@ $(LIBFT):
 clean:
 	$(MAKE) clean -C ./libft/
 	$(RM) $(wildcard $(OBJ)/*.o) 
+	$(RM) $(wildcard $(O_CHK)/*.o)
 
 fclean: clean
-	$(RM) $(LIBFT) $(NAME) 
+	$(RM) $(LIBFT) $(NAME) checker
 
 re: fclean all

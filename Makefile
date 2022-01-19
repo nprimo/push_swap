@@ -6,7 +6,7 @@
 #    By: nprimo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/19 20:11:29 by nprimo            #+#    #+#              #
-#    Updated: 2022/01/19 15:25:12 by nprimo           ###   ########.fr        #
+#    Updated: 2022/01/19 16:39:35 by nprimo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,10 +59,6 @@ all: $(NAME) checker
 
 checker: $(LIBFT) $(OBJS) $(O_CHKS) 
 	$(CC) $(CFLAGS) -o $@ $^ -I $(INC_D) $(LIBFT)
-
-something:
-	@ echo $(PSHS)
-	@ echo $(CHKS)
 
 $(LIBFT):
 	$(MAKE) -C ./libft/

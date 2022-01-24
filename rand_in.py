@@ -3,7 +3,7 @@ import sys
 import os
 
 def random_input(size):
-    arr = list(range(size))
+    arr = random.sample(range(-2147483648, 2147483648), size)
     random.shuffle(arr)
     return ' '.join(map(str, arr))
 

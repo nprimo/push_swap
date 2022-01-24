@@ -36,7 +36,7 @@
 *.x86_64
 *.hex
 push_swap
-checker_linux
+checker*
 
 # Debug files
 *.dSYM/

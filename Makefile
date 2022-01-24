@@ -6,7 +6,7 @@
 #    By: nprimo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/19 20:11:29 by nprimo            #+#    #+#              #
-#    Updated: 2022/01/24 10:33:46 by nprimo           ###   ########.fr        #
+#    Updated: 2022/01/24 11:46:21 by nprimo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ clean:
 	$(MAKE) clean -C ./libft/
 	$(RM) $(wildcard $(OBJ)/*.o) 
 	$(RM) $(wildcard $(O_CHK)/*.o)
+	$(RM) $(wildcard $(O_PSH)/*.o)
 
 fclean: clean
 	$(RM) $(LIBFT) $(NAME) checker

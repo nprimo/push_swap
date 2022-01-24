@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 17:59:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/16 15:59:27 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/24 12:20:08 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static int	push2(t_stack **stc_a, t_stack **stc_b, char **comm)
 	pos = get_pos_min(*stc_a) + rel_pos;
 	if (pos > ft_stcsize(*stc_a))
 		pos = pos - ft_stcsize(*stc_a);
-	if (pos > (ft_stcsize(*stc_a) - 1) / 2 )
+	if (pos > (ft_stcsize(*stc_a) - 1) / 2)
 		move = pos - ft_stcsize(*stc_a);
 	else
 		move = pos;

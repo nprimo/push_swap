@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:35:33 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/24 10:41:20 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/24 11:37:39 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	free_split(char **av)
 	free(head);
 }
 
-t_stack	*init_stack(int ac, char **av)
+static t_stack	*init_stack_b(char **av)
 {
 	t_stack	*stack;
 	char	**inputs;
@@ -73,10 +73,7 @@ t_stack	*init_stack(int ac, char **av)
 	int		num;
 
 	stack = NULL;
-	if (ac > 2)
-		inputs = &av[1];
-	else
-		inputs = ft_split(av[1], ' ');
+	inputs = ft_split(av[1], ' ');
 	pos = 0;
 	while (inputs[pos])
 	{
@@ -91,5 +88,34 @@ t_stack	*init_stack(int ac, char **av)
 			return (NULL);
 	}
 	free_split(inputs);
+	return (stack);
+}
+
+t_stack	*init_stack(int ac, char **av)
+{
+	t_stack	*stack;
+	char	**inputs;
+	int		pos;
+	int		num;
+
+	stack = NULL;
+	if (ac > 2)
+	{
+		inputs = &av[1];
+		pos = -1;
+		while (inputs[++pos])
+		{
+			if (is_alldigit(inputs[pos]) && is_in_int_range(inputs[pos])
+				&& !is_in_stack(inputs[pos], stack))
+			{
+				num = (int) ft_atoi(inputs[pos]);
+				ft_stcadd_back(&stack, ft_stcnew(num));
+			}
+			else
+				return (NULL);
+		}
+	}
+	else
+		stack = init_stack_b(av);
 	return (stack);
 }

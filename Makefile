@@ -6,7 +6,7 @@
 #    By: nprimo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/19 20:11:29 by nprimo            #+#    #+#              #
-#    Updated: 2022/01/19 16:39:35 by nprimo           ###   ########.fr        #
+#    Updated: 2022/01/24 10:33:46 by nprimo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,15 +40,15 @@ RM = rm -rf
 
 $(OBJ)/%.o: $(SRC)/%.c
 	@ mkdir -p $(OBJ)
-	$(CC) $(CFLAGS) -I $(INC_D) -L $(LIBFT_D) -c $< -o $@
+	$(CC) $(CFLAGS) -I $(INC_D) -c $< -o $@
 
 $(O_PSH)/%.o: $(PSH)/%.c 
 	@ mkdir -p $(O_PSH)
-	$(CC) $(CFLAGS) -I $(INC_D) -L $(LIBFT_D) -c $< -o $@
+	$(CC) $(CFLAGS) -I $(INC_D) -c $< -o $@
 
 $(O_CHK)/%.o: $(CHK)/%.c 
 	@ mkdir -p $(O_CHK)
-	$(CC) $(CFLAGS) -I $(INC_D) -L $(LIBFT_D) -c $< -o $@
+	$(CC) $(CFLAGS) -I $(INC_D) -c $< -o $@
 
 $(NAME): $(LIBFT) $(OBJS) $(O_PSHS)
 	$(CC) $(CFLAGS) -o $@ $^ -I $(INC_D) $(LIBFT)

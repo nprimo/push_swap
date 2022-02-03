@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:35:33 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/03 12:21:23 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/03 12:32:01 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@ static void	free_split(char **av)
 	free(head);
 }
 
+static t_stack	*free_all(char ***inputs, t_stack **stc)
+{
+	free(*inputs);
+	ft_stcclear(stc);
+	return (NULL);
+}
+
 static t_stack	*init_stack_b(char **av)
 {
 	t_stack	*stack;
@@ -49,7 +56,7 @@ static t_stack	*init_stack_b(char **av)
 			pos++;
 		}
 		else
-			return (NULL);
+			return (free_all(&inputs, &stack));
 	}
 	free_split(inputs);
 	return (stack);
@@ -76,11 +83,7 @@ t_stack	*init_stack(int ac, char **av)
 				ft_stcadd_back(&stack, ft_stcnew(num));
 			}
 			else
-			{
-				free_split(inputs);
-				ft_stcclear(&stack);
-				return (NULL);
-			}
+				return (free_all(&inputs, &stack));
 		}
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:35:33 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/24 12:18:26 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/03 12:21:23 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,11 @@ t_stack	*init_stack(int ac, char **av)
 				ft_stcadd_back(&stack, ft_stcnew(num));
 			}
 			else
+			{
+				free_split(inputs);
+				ft_stcclear(&stack);
 				return (NULL);
+			}
 		}
 	}
 	else
